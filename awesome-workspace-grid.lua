@@ -34,8 +34,8 @@ function workspace_grid:new(args)
 end
 
 function workspace_grid:init(args)
-   self.rows = args.rows
-   self.columns = args.columns
+   self.rows = args.rows or 2
+   self.columns = args.columns or 3
 
    if args.visual then
       awful.screen.connect_for_each_screen(function(s)
