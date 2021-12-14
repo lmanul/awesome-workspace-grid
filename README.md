@@ -1,6 +1,14 @@
 # awesome-workspace-grid
 
-Sample usage:
+Installation: just clone this repository into your `awesome` configuration
+directory:
+
+```
+cd ~/.config/awesome
+git clone https://github.com/lmanul/awesome-workspace-grid.git
+```
+
+Sample usage in `rc.lua`:
 
 ```
 local workspace_grid = require("awesome-workspace-grid")
@@ -10,6 +18,9 @@ grid = workspace_grid({
   visual = true,   -- whether to show workspace changes
 })
 
+-- Insert after 'globalkeys' is defined but before it is passed to 'root':
+
+tag_nav_mod_keys = { "Control" }
 globalkeys = gears.table.join(globalkeys,
   awful.key(tag_nav_mod_keys, "Up",
             function () grid:navigate("up") end, {description = "Up", group="Tag"}),
