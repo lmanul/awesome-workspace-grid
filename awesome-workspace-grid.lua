@@ -1,4 +1,31 @@
 local awful = require("awful")
+local naughty = require("naughty")
+
+function on_tag_selected(t)
+  if t.screen == nil then
+    return
+  end
+  -- Only need to do anything on the focused screen.
+  if t.screen.index ~= awful.screen.focused().index then
+    return
+  end
+  if t.selected == false then
+    -- This is the tag we are leaving
+    return
+  end
+  for i = 1, screen.count() do
+     s = screen[i]
+     notification = naughty.notify({
+           position = "top_middle",
+           preset = naughty.config.presets.normal,
+           replaces_id = s.workspace_notification_id,
+           screen = i,
+           text = t.name,
+           timeout = 1,
+     })
+     s.workspace_notification_id = notification.id
+  end
+end
 
 local workspace_grid = {}
 
@@ -7,9 +34,17 @@ function workspace_grid:new(args)
 end
 
 function workspace_grid:init(args)
-  self.rows = args.rows
-  self.columns = args.columns
-  return self
+   self.rows = args.rows
+   self.columns = args.columns
+
+   if args.visual then
+      awful.screen.connect_for_each_screen(function(s)
+            s.workspace_notification_id = nil
+      end)
+      tag.connect_signal("property::selected", on_tag_selected)
+   end
+
+   return self
 end
 
 function workspace_grid:navigate(direction)
