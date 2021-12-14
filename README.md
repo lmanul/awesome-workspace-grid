@@ -5,9 +5,9 @@ Sample usage:
 ```
 local workspace_grid = require("awesome-workspace-grid")
 grid = workspace_grid({
-  rows = rows,        -- only 2 supported for now!
-  columns = columns,  -- only 3 supported for now!
-  visual = true,
+  rows = 2,        -- only 2 supported for now!
+  columns = 3,     -- only 3 supported for now!
+  visual = true,   -- whether to show workspace changes
 })
 
 globalkeys = gears.table.join(globalkeys,
