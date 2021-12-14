@@ -1,6 +1,11 @@
 local awful = require("awful")
 local naughty = require("naughty")
 
+function script_path()
+   local str = debug.getinfo(2, "S").source:sub(2)
+   return str:match("(.*/)")
+end
+
 function on_tag_selected(t)
    if t.screen == nil then
       return
@@ -16,11 +21,13 @@ function on_tag_selected(t)
    for i = 1, screen.count() do
       s = screen[i]
       notification = naughty.notify({
+            icon = script_path() .. "icons/workspace_0" .. t.index .. ".svg",
+            icon_size = 100,
             position = "top_middle",
             preset = naughty.config.presets.normal,
             replaces_id = s.workspace_notification_id,
             screen = i,
-            text = t.name,
+            text = nil,
             timeout = 1,
       })
       s.workspace_notification_id = notification.id
