@@ -7,21 +7,16 @@ function workspace_grid:new(args)
 end
 
 function workspace_grid:init(args)
-  self.test = 0
+  self.rows = args.rows
+  self.columns = args.columns
   return self
 end
 
-local rows = 2
-local columns = 3
-
 function workspace_grid:navigate(direction)
-  log(tostring(direction))
   local t = awful.screen.focused().selected_tag
   local i = t.index - 1
-  local c = columns
-  local r = rows
-  log("Rows " .. tostring(rows))
-  log("Cols" .. tostring(columns))
+  local c = self.columns
+  local r = self.rows
 
   -- Don't cycle.
   -- Top row
@@ -34,17 +29,15 @@ function workspace_grid:navigate(direction)
   if (i >= (r - 1) * c) and (direction == "down")  then return true end
 
   action = {
-    ["down"] = (i + columns) % (rows * columns) + 1,
-    ["up"] = (i - columns) % (rows * columns) + 1,
-    ["left"] = (math.ceil((i + 1) / columns) - 1) * columns + ((i - 1) % columns) + 1,
-    ["right"] = (math.ceil((i + 1) / columns) - 1) * columns + ((i + 1) % columns) + 1,
+    ["down"] = (i + c) % (r * c) + 1,
+    ["up"] = (i - c) % (r * c) + 1,
+    ["left"] = (math.ceil((i + 1) / c) - 1) * c + ((i - 1) % c) + 1,
+    ["right"] = (math.ceil((i + 1) / c) - 1) * c + ((i + 1) % c) + 1,
   }
   local j = action[direction]
-  log(tostring(j))
 
   -- Switch tags on all screens at the same time.
   for s in screen do
-    log(tostring(s))
     t = s.tags[j]
     if t then t:view_only() end
   end
