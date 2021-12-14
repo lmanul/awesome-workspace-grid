@@ -54,6 +54,7 @@ function workspace_grid:navigate(direction)
   local r = self.rows
 
   -- Don't cycle.
+  -- TODO: Add option for cycling.
   -- Top row
   if (i < c)            and (direction == "up")    then return true end
   -- Left column
@@ -72,6 +73,7 @@ function workspace_grid:navigate(direction)
   local j = action[direction]
 
   -- Switch tags on all screens at the same time.
+  -- TODO: Add option to switch per-screen.
   for s in screen do
     t = s.tags[j]
     if t then t:view_only() end
