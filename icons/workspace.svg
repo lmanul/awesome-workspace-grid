@@ -9,16 +9,16 @@
    height="100mm"
    viewBox="0 0 150 100">
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5.09767;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
+     style="fill:none;stroke:#bebebe;stroke-width:5"
      d="M 50,0 V 100" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
+     style="fill:none;stroke:#bebebe;stroke-width:5"
      d="M 150,50 H 0" />
   <path
-     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
+     style="fill:none;stroke:#bebebe;stroke-width:5"
      d="M 100,0 V 100" />
   <rect
-     style="color:#000000;display:inline;overflow:visible;fill:none;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;enable-background:accumulate"
+     style="fill:none;stroke:#bebebe;stroke-width:5"
      width="145.2"
      height="95.2"
      x="2.4"
