@@ -7,27 +7,21 @@
    xmlns="http://www.w3.org/2000/svg"
    width="150mm"
    height="100mm"
-   viewBox="0 0 150 100"
-   version="1.1"
-   id="svg8">
-  <defs
-     id="defs2" />
-  <g id="layer1">
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5.09767;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 49.954917,0 V 100" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 150,50 H 0" />
-    <path
-       style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
-       d="M 100,1.0833333e-6 V 100" />
-    <rect
-       style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#bebebe;stroke-width:4.80024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
-       width="145.19977"
-       height="95.19976"
-       x="2.4001181"
-       y="2.4001181"
-       ry="8.9859095" />
-  </g>
+   viewBox="0 0 150 100">
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5.09767;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 50,0 V 100" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 150,50 H 0" />
+  <path
+     style="fill:none;fill-rule:evenodd;stroke:#bebebe;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none"
+     d="M 100,0 V 100" />
+  <rect
+     style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#bebebe;stroke-width:4.80024;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate"
+     width="145.19977"
+     height="95.19976"
+     x="2.4"
+     y="2.4"
+     ry="9" />
 </svg>
