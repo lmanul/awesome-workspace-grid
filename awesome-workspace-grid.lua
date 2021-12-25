@@ -17,6 +17,7 @@ function workspace_grid:init(args)
    self.columns = args.columns or 3
    self.position = args.position or "top_middle"
    self.visual = args.visual or true
+   self.cycle = args.cycle or false
 
    if self.visual then
       awful.screen.connect_for_each_screen(function(s)
@@ -36,16 +37,16 @@ function workspace_grid:navigate(direction)
    local c = self.columns
    local r = self.rows
 
-   -- Don't cycle.
-   -- TODO: Add option for cycling.
-   -- Top row
-   if (i < c)            and (direction == "up")    then return true end
-   -- Left column
-   if (i % c == 0)       and (direction == "left")  then return true end
-   -- Right column
-   if ((i + 1) % c == 0) and (direction == "right") then return true end
-   -- Bottom row
-   if (i >= (r - 1) * c) and (direction == "down")  then return true end
+   if not self.cycle then
+     -- Top row
+     if (i < c)            and (direction == "up")    then return true end
+     -- Left column
+     if (i % c == 0)       and (direction == "left")  then return true end
+     -- Right column
+     if ((i + 1) % c == 0) and (direction == "right") then return true end
+     -- Bottom row
+     if (i >= (r - 1) * c) and (direction == "down")  then return true end
+   end
 
    action = {
       ["down"] = (i + c) % (r * c) + 1,

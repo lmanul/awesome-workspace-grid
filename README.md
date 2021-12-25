@@ -17,6 +17,7 @@ Arguments to pass to the contructor (all of them are optional):
 |------------|----------------|-------------------------------------|
 | `rows`     | 2              | Number of rows (1 to 9)             |
 | `columns`  | 3              | Number of columns (1 to 9)          |
+| `cycle`    | `false`        | Whether to cycle at grid edges      |
 | `position` | `"top_middle"` | Notification position on the screen |
 | `visual`   | `true`         | Whether to show workspace changes   |
 
