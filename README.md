@@ -1,5 +1,3 @@
-# awesome-workspace-grid
-
 ## Installation
 
 Clone this repository into your `awesome` configuration directory:
