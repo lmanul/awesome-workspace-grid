@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+
+import os
+
+MAX_ROWS = 5
+MAX_COLS = 5
+ICON_NAME_PREFIX = "workspace"
+
+WORKSPACE_WIDTH = 50
+WORKSPACE_HEIGHT = 50
+STROKE_COLOR = "#bebebe"
+STROKE_WIDTH = 5
+BORDER_RADIUS = 10
+
+with open("workspace_icon_template.data") as f:
+    TEMPLATE = f.read()
+
+def generate_icons(n_rows, n_cols):
+    for i in range(1, n_rows * n_cols + 1):
+        filename = f"{ICON_NAME_PREFIX}_{n_rows}x{n_cols}_{i}.svg"
+        width = n_cols * WORKSPACE_WIDTH
+        height = n_rows * WORKSPACE_HEIGHT
+        data = TEMPLATE
+        data = data.replace("{{WIDTH}}", str(width))
+        data = data.replace("{{HEIGHT}}", str(height))
+        data = data.replace("{{STROKE_COLOR}}", STROKE_COLOR)
+        data = data.replace("{{STROKE_WIDTH}}", str(STROKE_WIDTH))
+        data = data.replace("{{BORDER_RADIUS}}", str(BORDER_RADIUS))
+        data = data.replace("{{RECTANGLE_X}}", str(STROKE_WIDTH / 2))
+        data = data.replace("{{RECTANGLE_Y}}", str(STROKE_WIDTH / 2))
+        data = data.replace("{{RECTANGLE_WIDTH}}", str(width - STROKE_WIDTH))
+        data = data.replace("{{RECTANGLE_HEIGHT}}", str(height - STROKE_WIDTH))
+        data += "</svg>"
+        with open(filename, "w") as f:
+            f.write(data)
+
+if __name__ == "__main__":
+    for N_ROWS in range(MAX_ROWS + 1):
+        for N_COLS in range(MAX_COLS + 1):
+            generate_icons(N_ROWS, N_COLS)
