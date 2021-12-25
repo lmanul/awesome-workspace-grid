@@ -79,6 +79,7 @@ function workspace_grid:on_tag_selected(t)
       notification = naughty.notify({
             icon = script_path() .. icon_path,
             icon_size = 100,
+            margin = 0,
             position = "top_middle",
             preset = naughty.config.presets.normal,
             replaces_id = s.workspace_notification_id,
