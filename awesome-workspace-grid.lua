@@ -18,6 +18,7 @@ function workspace_grid:init(args)
    self.position = args.position or "top_middle"
    self.visual = args.visual or true
    self.cycle = args.cycle or false
+   self.icon_size = args.icon_size or 100
 
    if self.visual then
       awful.screen.connect_for_each_screen(function(s)
@@ -81,7 +82,7 @@ function workspace_grid:on_tag_selected(t)
       icon_path = "icons/workspace_" .. self.rows .. "x" .. self.columns .. "_" .. t.index .. ".svg"
       notification = naughty.notify({
             icon = script_path() .. icon_path,
-            icon_size = 100,
+            icon_size = self.icon_size,
             margin = 0,
             position = self.position,
             preset = naughty.config.presets.normal,
