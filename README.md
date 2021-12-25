@@ -8,14 +8,26 @@ cd ~/.config/awesome
 git clone https://github.com/lmanul/awesome-workspace-grid.git
 ```
 
+Arguments to pass to the contructor (all of them are optional):
+
+| Arg        | Default        | Description |
+----------------------------------
+| `rows`     | 2              | Number of rows (1 to 9) |
+| `columns`  | 3              | Number of columns (1 to 9) |
+| `position` | `"top_middle"` | Notification position on the screen |
+| `visual`   | `true`         | Whether to show workspace changes |
+----------------------------------
+
+Please make sure that `rows` × `columns` is equal to your number of tags, as
+defined by the call to `awful.tag()` in your configuration.
+
 Sample usage in `rc.lua`:
 
 ```
 local workspace_grid = require("awesome-workspace-grid")
 grid = workspace_grid({
-  rows = 2,        -- supported: 1 to 9
-  columns = 3,     -- supported: 1 to 9
-  visual = true,   -- whether to show workspace changes
+  rows = 3,
+  columns = 3,
 })
 
 -- Insert after 'globalkeys' is defined but before it is passed to 'root':

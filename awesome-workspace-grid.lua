@@ -15,8 +15,10 @@ end
 function workspace_grid:init(args)
    self.rows = args.rows or 2
    self.columns = args.columns or 3
+   self.position = args.position or "top_middle"
+   self.visual = args.visual or true
 
-   if args.visual then
+   if self.visual then
       awful.screen.connect_for_each_screen(function(s)
             s.workspace_notification_id = nil
       end)
@@ -80,7 +82,7 @@ function workspace_grid:on_tag_selected(t)
             icon = script_path() .. icon_path,
             icon_size = 100,
             margin = 0,
-            position = "top_middle",
+            position = self.position,
             preset = naughty.config.presets.normal,
             replaces_id = s.workspace_notification_id,
             screen = i,
