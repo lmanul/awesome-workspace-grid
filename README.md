@@ -10,13 +10,12 @@ git clone https://github.com/lmanul/awesome-workspace-grid.git
 
 Arguments to pass to the contructor (all of them are optional):
 
-| Arg        | Default        | Description |
-----------------------------------
-| `rows`     | 2              | Number of rows (1 to 9) |
-| `columns`  | 3              | Number of columns (1 to 9) |
+| Arg        | Default        | Description                         |
+|------------|----------------|-------------------------------------|
+| `rows`     | 2              | Number of rows (1 to 9)             |
+| `columns`  | 3              | Number of columns (1 to 9)          |
 | `position` | `"top_middle"` | Notification position on the screen |
-| `visual`   | `true`         | Whether to show workspace changes |
-----------------------------------
+| `visual`   | `true`         | Whether to show workspace changes   |
 
 Please make sure that `rows` × `columns` is equal to your number of tags, as
 defined by the call to `awful.tag()` in your configuration.
