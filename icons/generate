@@ -30,6 +30,28 @@ def draw_outer_rectangle(data, width, height):
     data = data.replace("{{RECTANGLE_HEIGHT}}", str(height - STROKE_WIDTH))
     return data
 
+def draw_line(is_horizontal, start_x, start_y, length):
+    data = ""
+    direction = "H" if is_horizontal else "V"
+    data += f'<path style="fill:none;stroke:{STROKE_COLOR};'
+    data += f'stroke-width:{STROKE_WIDTH}" '
+    data += f'd="M {start_x},{start_y} {direction} {length}" />'
+    return data
+
+def draw_horizontal_lines(data, n_rows, width):
+    row = 1
+    while row < n_rows:
+        data += draw_line(True, 0, row * WORKSPACE_HEIGHT, width)
+        row += 1
+    return data
+
+def draw_vertical_lines(data, n_cols, height):
+    col = 1
+    while col < n_cols:
+        data += draw_line(False, col * WORKSPACE_WIDTH, 0, height)
+        col += 1
+    return data
+
 def generate_icons(n_rows, n_cols):
     for i in range(1, n_rows * n_cols + 1):
         filename = f"{ICON_NAME_PREFIX}_{n_rows}x{n_cols}_{i}.svg"
@@ -38,6 +60,8 @@ def generate_icons(n_rows, n_cols):
         data = TEMPLATE
         data = define_globals(data, width, height)
         data = draw_outer_rectangle(data, width, height)
+        data = draw_horizontal_lines(data, n_rows, width)
+        data = draw_vertical_lines(data, n_cols, height)
         data += "</svg>"
         with open(filename, "w") as f:
             f.write(data)
