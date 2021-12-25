@@ -59,7 +59,7 @@ def draw_vertical_lines(data, n_cols, height):
         col += 1
     return data
 
-def draw_active_space(data, n_rows, n_cols, index):
+def draw_active_space(data, n_cols, index):
     active_row = index // n_cols
     active_col = index % n_cols
     x = active_col * WORKSPACE_WIDTH + STROKE_WIDTH / 2
@@ -79,7 +79,7 @@ def generate_icons(n_rows, n_cols):
         data = draw_outer_rectangle(data, width, height)
         data = draw_horizontal_lines(data, n_rows, width)
         data = draw_vertical_lines(data, n_cols, height)
-        data = draw_active_space(data, n_rows, n_cols, i)
+        data = draw_active_space(data, n_cols, i)
         data += "</svg>"
         with open(filename, "w") as f:
             f.write(data)
