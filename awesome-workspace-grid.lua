@@ -75,8 +75,9 @@ function workspace_grid:on_tag_selected(t)
    end
    for i = 1, screen.count() do
       s = screen[i]
+      icon_path = "icons/workspace_" .. self.rows .. "x" .. self.columns .. "_" .. t.index .. ".svg"
       notification = naughty.notify({
-            icon = script_path() .. "icons/workspace_0" .. t.index .. ".svg",
+            icon = script_path() .. icon_path,
             icon_size = 100,
             position = "top_middle",
             preset = naughty.config.presets.normal,
