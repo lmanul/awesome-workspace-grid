@@ -1,12 +1,15 @@
 # awesome-workspace-grid
 
-Installation: just clone this repository into your `awesome` configuration
-directory:
+## Installation
+
+Clone this repository into your `awesome` configuration directory:
 
 ```
 cd ~/.config/awesome
 git clone https://github.com/lmanul/awesome-workspace-grid.git
 ```
+
+## Usage
 
 Arguments to pass to the contructor (all of them are optional):
 
