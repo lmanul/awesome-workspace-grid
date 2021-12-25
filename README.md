@@ -13,8 +13,8 @@ Sample usage in `rc.lua`:
 ```
 local workspace_grid = require("awesome-workspace-grid")
 grid = workspace_grid({
-  rows = 2,        -- only 2 supported for now!
-  columns = 3,     -- only 3 supported for now!
+  rows = 2,        -- supported: 1 to 5
+  columns = 3,     -- supported: 1 to 5
   visual = true,   -- whether to show workspace changes
 })
 
