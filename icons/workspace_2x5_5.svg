@@ -10,4 +10,4 @@
      x="2.5"
      y="2.5"
      ry="10" />
-<path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 0,50 H 250" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 50,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 100,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 150,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 200,0 V 100" /></svg>
+<path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 0,50 H 250" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 50,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 100,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 150,0 V 100" /><path style="fill:none;stroke:#bebebe;stroke-width:5" d="M 200,0 V 100" /><rect style="fill:#bebebe" width="45" height="45" x="202.5" y="2.5" /></svg>
