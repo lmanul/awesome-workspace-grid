@@ -6,34 +6,6 @@ function script_path()
    return str:match("(.*/)")
 end
 
-function on_tag_selected(t)
-   if t.screen == nil then
-      return
-   end
-   -- Only need to do anything on the focused screen.
-   if t.screen.index ~= awful.screen.focused().index then
-      return
-   end
-   if t.selected == false then
-      -- This is the tag we are leaving
-      return
-   end
-   for i = 1, screen.count() do
-      s = screen[i]
-      notification = naughty.notify({
-            icon = script_path() .. "icons/workspace_0" .. t.index .. ".svg",
-            icon_size = 100,
-            position = "top_middle",
-            preset = naughty.config.presets.normal,
-            replaces_id = s.workspace_notification_id,
-            screen = i,
-            text = nil,
-            timeout = 1,
-      })
-      s.workspace_notification_id = notification.id
-   end
-end
-
 local workspace_grid = {}
 
 function workspace_grid:new(args)
@@ -48,7 +20,9 @@ function workspace_grid:init(args)
       awful.screen.connect_for_each_screen(function(s)
             s.workspace_notification_id = nil
       end)
-      tag.connect_signal("property::selected", on_tag_selected)
+      tag.connect_signal("property::selected", function(t)
+        self:on_tag_selected(t)
+      end)
    end
 
    return self
@@ -84,6 +58,34 @@ function workspace_grid:navigate(direction)
    for s in screen do
       t = s.tags[j]
       if t then t:view_only() end
+   end
+end
+
+function workspace_grid:on_tag_selected(t)
+   if t.screen == nil then
+      return
+   end
+   -- Only need to do anything on the focused screen.
+   if t.screen.index ~= awful.screen.focused().index then
+      return
+   end
+   if t.selected == false then
+      -- This is the tag we are leaving
+      return
+   end
+   for i = 1, screen.count() do
+      s = screen[i]
+      notification = naughty.notify({
+            icon = script_path() .. "icons/workspace_0" .. t.index .. ".svg",
+            icon_size = 100,
+            position = "top_middle",
+            preset = naughty.config.presets.normal,
+            replaces_id = s.workspace_notification_id,
+            screen = i,
+            text = nil,
+            timeout = 1,
+      })
+      s.workspace_notification_id = notification.id
    end
 end
 
