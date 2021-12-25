@@ -11,21 +11,7 @@ git clone https://github.com/lmanul/awesome-workspace-grid.git
 
 ## Usage
 
-Arguments to pass to the contructor (all of them are optional):
-
-| Arg         | Default        | Description                         |
-|-------------|----------------|-------------------------------------|
-| `rows`      | 2              | Number of rows (1 to 9)             |
-| `columns`   | 3              | Number of columns (1 to 9)          |
-| `cycle`     | `false`        | Whether to cycle at grid edges      |
-| `icon_size` | 100            | Size of icon in notification        |
-| `position`  | `"top_middle"` | Notification position on the screen |
-| `visual`    | `true`         | Whether to show workspace changes   |
-
-Please make sure that `rows` × `columns` is equal to your number of tags, as
-defined by the call to `awful.tag()` in your configuration.
-
-Sample usage in `rc.lua`:
+Basic usage, in `rc.lua`:
 
 ```
 local workspace_grid = require("awesome-workspace-grid")
@@ -33,7 +19,14 @@ grid = workspace_grid({
   rows = 3,
   columns = 3,
 })
+```
 
+Please make sure that `rows` × `columns` is equal to your number of tags, as
+defined by the call to `awful.tag()` in your configuration.
+
+Define keyboard shortcuts like so:
+
+```
 -- Insert after 'globalkeys' is defined but before it is passed to 'root':
 
 tag_nav_mod_keys = { "Control" }
@@ -48,3 +41,16 @@ globalkeys = gears.table.join(globalkeys,
             function () grid:navigate("right") end, {description = "Right", group="Tag"}),
 )
 ```
+
+## Options
+
+Arguments that can be passed to the contructor (all of them are optional):
+
+| Arg         | Default        | Description                         |
+|-------------|----------------|-------------------------------------|
+| `rows`      | 2              | Number of rows (1 to 9)             |
+| `columns`   | 3              | Number of columns (1 to 9)          |
+| `cycle`     | `false`        | Whether to cycle at grid edges      |
+| `icon_size` | 100            | Size of icon in notification        |
+| `position`  | `"top_middle"` | Notification position on the screen |
+| `visual`    | `true`         | Whether to show workspace changes   |
