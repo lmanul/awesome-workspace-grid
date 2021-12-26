@@ -1,3 +1,5 @@
+![Animated screenshot](https://raw.githubusercontent.com/lmanul/awesome-workspace-grid/master/screenshot.gif)
+
 ## Installation
 
 Clone this repository into your `awesome` configuration directory:
