@@ -46,11 +46,12 @@ globalkeys = gears.table.join(globalkeys,
 
 Arguments that can be passed to the contructor (all of them are optional):
 
-| Arg         | Default        | Description                         |
-|-------------|----------------|-------------------------------------|
-| `rows`      | 2              | Number of rows (1 to 9)             |
-| `columns`   | 3              | Number of columns (1 to 9)          |
-| `cycle`     | `false`        | Whether to cycle at grid edges      |
-| `icon_size` | 100            | Size of icon in notification        |
-| `position`  | `"top_middle"` | Notification position on the screen |
-| `visual`    | `true`         | Whether to show workspace changes   |
+| Arg                  | Default        | Description                              |
+|----------------------|----------------|------------------------------------------|
+| `rows`               | 2              | Number of rows (1 to 9)                  |
+| `columns`            | 3              | Number of columns (1 to 9)               |
+| `cycle`              | `false`        | Whether to cycle at grid edges           |
+| `icon_size`          | 100            | Size of icon in notification             |
+| `position`           | `"top_middle"` | Notification position on the screen      |
+| `visual`             | `true`         | Whether to show workspace changes        |
+| `switch_all_screens` | `true`         | Whether tag changes apply to all screens |

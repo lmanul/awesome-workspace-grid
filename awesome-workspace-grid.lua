@@ -19,6 +19,7 @@ function workspace_grid:init(args)
    self.visual = args.visual or true
    self.cycle = args.cycle or false
    self.icon_size = args.icon_size or 100
+   self.switch_all_screens = args.switch_all_screens or true
 
    if self.visual then
       awful.screen.connect_for_each_screen(function(s)
@@ -57,12 +58,17 @@ function workspace_grid:navigate(direction)
    }
    local j = action[direction]
 
-   -- Switch tags on all screens at the same time.
-   -- TODO: Add option to switch per-screen.
-   for s in screen do
+  if self.switch_all_screens then
+    -- Switch tags on all screens at the same time.
+    for s in screen do
       t = s.tags[j]
       if t then t:view_only() end
-   end
+    end
+  else
+    -- Switch tags on the focused screen only.
+    t = screen.focused.tags[j]
+    if t then t:view_only() end
+  end
 end
 
 function workspace_grid:on_tag_selected(t)
