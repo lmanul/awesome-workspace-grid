@@ -16,10 +16,18 @@ function workspace_grid:init(args)
    self.rows = args.rows or 2
    self.columns = args.columns or 3
    self.position = args.position or "top_middle"
-   self.visual = args.visual or true
+   if args.visual == nil then
+     self.visual = true
+   else
+     self.visual = args.visual
+   end
    self.cycle = args.cycle or false
    self.icon_size = args.icon_size or 100
-   self.switch_all_screens = args.switch_all_screens or true
+   if args.switch_all_screens == nil then
+     self.switch_all_screens = true
+   else
+     self.switch_all_screens = args.switch_all_screens
+   end
 
    if self.visual then
       awful.screen.connect_for_each_screen(function(s)
@@ -66,7 +74,7 @@ function workspace_grid:navigate(direction)
     end
   else
     -- Switch tags on the focused screen only.
-    t = screen.focused.tags[j]
+    t = awful.screen.focused().tags[j]
     if t then t:view_only() end
   end
 end
