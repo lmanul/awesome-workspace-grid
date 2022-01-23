@@ -91,21 +91,30 @@ function workspace_grid:on_tag_selected(t)
       -- This is the tag we are leaving
       return
    end
-   for i = 1, screen.count() do
-      s = screen[i]
-      icon_path = "icons/workspace_" .. self.rows .. "x" .. self.columns .. "_" .. t.index .. ".svg"
-      notification = naughty.notify({
-            icon = script_path() .. icon_path,
-            icon_size = self.icon_size,
-            margin = 0,
-            position = self.position,
-            preset = naughty.config.presets.normal,
-            replaces_id = s.workspace_notification_id,
-            screen = i,
-            text = nil,
-            timeout = 1,
-      })
-      s.workspace_notification_id = notification.id
+   icon_path = "icons/workspace_" .. self.rows .. "x" .. self.columns .. "_" .. t.index .. ".svg"
+   notification_config = {
+      icon = script_path() .. icon_path,
+      icon_size = self.icon_size,
+      margin = 0,
+      position = self.position,
+      preset = naughty.config.presets.normal,
+      text = nil,
+      timeout = 1,
+   }
+   if self.switch_all_screens then
+      for i = 1, screen.count() do
+         s = screen[i]
+         notification_config.screen = i
+         notification_config.replaces_id = s.workspace_notification_id
+         notification = naughty.notify(notification_config)
+         s.workspace_notification_id = notification.id
+      end
+   else
+      focused_screen = awful.screen.focused()
+      notification_config.screen = focused_screen.index
+      notification_config.replaces_id = focused_screen.workspace_notification_id
+      notification = naughty.notify(notification_config)
+      focused_screen.workspace_notification_id = notification.id
    end
 end
 
